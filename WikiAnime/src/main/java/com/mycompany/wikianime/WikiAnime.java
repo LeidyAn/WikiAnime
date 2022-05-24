@@ -4,157 +4,45 @@
  */
 
 package com.mycompany.wikianime;
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Leidy Andrea Muñoz Hios
  */
 public class WikiAnime {
+    
+    public static bienvenida welcome = new bienvenida();    
+    public static CrearListas create = new CrearListas();    
+    public static DefinirCatalogo reviewCatalog = new DefinirCatalogo();
+
+
+    
+    public class globalVars {
+        public static int continuar = 1;
+        public static int counter = 0; 
+        public static List<AnimeDeseado> animeDeseado = new ArrayList<>();
+        public static List<AnimeIniciado> animeIniciado = new ArrayList<>();        
+        public static List<AnimeFinalizado> animeFinalizado = new ArrayList<>();
+        public static List<AnimeListaNegra> ListaNegra = new ArrayList<>();
+
+    }
     //Método para dar la bienvenida y definición del proyecto
     
-    public static void Bienvenida(){
-        System.out.println("""
-                           Estimado humano, bienvenido.
-                           Este programa está diseñado para que pueda consultar 
-                           un ánime de nuestro catálogo para ampliar la información 
-                           y pueda decidir si verlo o no. 
-                           Además puede crear y descargar una lista de animes que quiera ver, 
-                           está viendo o terminó de ver, de esta forma va a estar siempre pendiente 
-                           de los ánimes que ha visto o desea ver. """);
-    }
+   
     
-    //método para opción catálogo
+    //Método para menú secundario 
     
-    public static void opcion_catalogo (int opcion) {
-        
-        switch (opcion){
-
-            case 1 -> {
-                System.out.println("""
-                           De qué categoría quieres ampliar la información de One Piece:
-                            1. Anime. 
-                            2. Manga.
-                            3. Información general.""");
-            }
-
-            case 2 -> {
-
-                System.out.println("""
-                           De qué categoría quieres ampliar la información de Singeki no Kyojin:
-                            1. Anime. 
-                            2. Manga.
-                            3. Información general.""");
-
-
-            }
-            case 3 -> {
-
-                System.out.println("""
-                           De qué categoría quieres ampliar la información de Jujutsu Kaisen:
-                            1. Anime. 
-                            2. Manga.
-                            3. Información general.""");
-
-
-            }
-            case 4 -> {
-
-                System.out.println("""
-                           De qué categoría quieres ampliar la información de Naruto:
-                            1. Anime. 
-                            2. Manga.
-                            3. Información general.""");
-
-
-            }
-
-            default -> {
-
-                System.out.println("Opcion incorrecta");
-
-            }
-
-      }
-        
-    }
-    
-    
-    //Método para opción crear lista 
-    
-    public static void crear_lista (int opcion) {
-        switch (opcion){
-
-            case 1 -> {
-                System.out.println("""
-                           Esta lista corresponde a los ánimes que quieres ver, para crearla necesito los siguientes datos:
-                            1. Nombre. 
-                            2. Total de cápitulos.
-                            3. Estado del ánime (terminado, en emisión, en pausa).""");
-            }
-
-            case 2 -> {
-
-                System.out.println("""
-                           Esta lista corresponde a los ánimes que ya iniciaste, para crearla necesito los siguientes datos:
-                            1. Nombre. 
-                            2. Total de capítulos.
-                            3. Capitulo en el que te encuentras.
-                            4. Estado del ánime (terminado, en emisión, en pausa).""");
-
-
-            }
-            case 3 -> {
-
-                System.out.println("""
-                           Esta lista corresponde a los ánimes que ya finalizaste, para crearla necesito los siguientes datos:
-                            1. Nombre. 
-                            2. Total de capitulos.
-                            3. Estado del ánime (terminado, en emisión, en pausa).
-                            4. Qué calificación de 1 a 5 merece el ánime.""");
-
-
-            }
-            case 4 -> {
-
-                System.out.println("""
-                           Esta lista corresponde a los ánimes que nunca recomendarías, ni a tu peor enemigo, para crearla necesito los siguientes datos:
-                            1. Nombre. 
-                            2. Total de capitulos.
-                            3. Estado del ánime (terminado, en emisión, en pausa).
-                            4. Qué calificación de 1 a 5 merece el ánime.
-                            5. Explicación del porqué no te gustó""");
-
-
-            }
-
-            default -> {
-
-                System.out.println("Opcion incorrecta");
-
-            }
-
-      }
-    }
-    
-    
-
-    public static void main(String[] args) {
-        
-         Scanner entrada = new Scanner(System.in);
-        
-        Bienvenida();
-        
-        // Solicitar opción inicial 
-        System.out.println("""
-                           Por favor seleccione una de las siguientes opciones:
-                            1. Ver catálogo de ánimes. 
-                            2. Crear lista de ánimes""");
-        
-        int opcionInicial  = entrada.nextInt();
-        
-        // Condicional para menú secundario
-        
-         switch (opcionInicial){
+    public static void catalogo_lista (int opcionInicial) {
+        Scanner entrada = new Scanner(System.in);
+        switch (opcionInicial){
 
             case 1 -> {
                 System.out.println("""
@@ -166,12 +54,14 @@ public class WikiAnime {
         
                 int opcionAnime  = entrada.nextInt();
                 
-                opcion_catalogo(opcionAnime);
+                reviewCatalog.opcion_catalogo(opcionAnime);
 
             }
 
             case 2 -> {
-
+                
+                while(globalVars.continuar == 1)
+                {
                 System.out.println("""
                            Por favor seleccione una de las siguientes opciones:
                             1. Lista de deseos. 
@@ -180,10 +70,20 @@ public class WikiAnime {
                             4. Lista negra.""");
         
                 int opcionLista  = entrada.nextInt();
+                // llamado del método para crear listas 
+                create.crear_lista(opcionLista);
+                globalVars.counter = globalVars.counter + 1;
+                System.out.println("""
+                           Desea agregar otro anime:
+                            1. Sí. 
+                            2. No.""");
+                    
+                    globalVars.continuar = entrada.nextInt();
+                }
                 
-                crear_lista(opcionLista);
-
-
+                // Mostrar resultado al terminar 
+                
+                EscribirAnime();
             }
 
             default -> {
@@ -194,4 +94,107 @@ public class WikiAnime {
 
       }
     }
+    
+    // clases para las listas de ánime que se van a crear
+    
+    public static class AnimeDeseado {
+
+        public String nombre;
+        public int total;
+        public String estado; 
+    }
+    
+    public static class AnimeIniciado {
+
+        public String nombre;
+        public int total;
+        public int capitulo;
+        public String estado;
+    }
+    
+    public static class AnimeFinalizado {
+
+        public String nombre;
+        public int total;
+        public String estado;
+        public int calificacion; 
+    }
+    
+    public static class AnimeListaNegra {
+
+        public String nombre;
+        public int total;
+        public String estado;
+        public int calificacion; 
+    }
+    
+    public static void EscribirAnime (){
+        if(globalVars.animeDeseado.size() >= 1 ){
+            System.out.println("Los ánimes que deseas ver son: ");
+        globalVars.animeDeseado.stream().forEach(anime -> System.out.println("Nombre del anime: " + anime.nombre + "\n" + 
+                                                                             "Total de capítulos: " + anime.total + "\n" + 
+                                                                             "Estado del ánime: " + anime.estado ));
+            System.out.println( "-------------------------------------------------------------");
+        }
+        
+        if(globalVars.animeIniciado.size() >= 1 ){
+            System.out.println("Los ánimes que has iniciado a ver son: ");
+        globalVars.animeIniciado.stream().forEach(anime -> System.out.println("Nombre del anime: " + anime.nombre + "\n" + 
+                                                                             "Total de capítulos: " + anime.total + "\n" + 
+                                                                             "Te encuentras en el capítulo número: " + anime.capitulo + "\n" +  
+                                                                             "Estado del ánime: " + anime.estado));
+            System.out.println( "-------------------------------------------------------------");
+
+        }
+        
+        if(globalVars.animeFinalizado.size() >= 1 ){
+            System.out.println("Los ánimes que has finalizado son: ");
+        globalVars.animeFinalizado.stream().forEach(anime -> System.out.println("Nombre del anime: " + anime.nombre + "\n" + 
+                                                                             "Total de capítulos: " + anime.total + "\n" + 
+                                                                             "Estado del ánime: " + anime.estado + "\n" +  
+                                                                             "Calificación que merece: " + anime.calificacion ));
+            System.out.println( "-------------------------------------------------------------");
+        }
+        
+        if(globalVars.ListaNegra.size() >= 1 ){
+            System.out.println("Los ánimes que no recomendarías ni a tu peor enemigo son: ");
+        globalVars.ListaNegra.stream().forEach(anime -> System.out.println("Nombre del anime: " + anime.nombre + "\n" + 
+                                                                             "Total de capítulos: " + anime.total + "\n" + 
+                                                                             "Estado del ánime: " + anime.estado + "\n" +  
+                                                                             "Calificación que merece: " + anime.calificacion ));
+        System.out.println( "-------------------------------------------------------------");
+        }
+        
+    }
+
+    
+    
+    //Método para opción crear lista 
+    
+    
+    
+    
+
+    public static void main(String[] args) {
+        try {
+            System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out), true, "UTF-8"));
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(WikiAnime.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         Scanner entrada = new Scanner(System.in);
+        //Dar bienvenida
+        welcome.Bienvenida();
+        // Solicitar opción inicial 
+        System.out.println("""
+                           Por favor seleccione una de las siguientes opciones:
+                            1. Ver catálogo de ánimes. 
+                            2. Crear lista de ánimes""");
+        
+        int opcionInicial  = entrada.nextInt();
+        // Llamado a segundo menu 
+        catalogo_lista(opcionInicial);
+        
+    }
+       
 }
