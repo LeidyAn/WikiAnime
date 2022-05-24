@@ -9,7 +9,10 @@ package com.mycompany.wikianime;
  * @author USUARIO PC
  */
 public class DataCatalogo {
-     public static String onePieceAnime[] = {"1018 capítulos", "Emisión", "20 de octubre de 1999", "Funanimation, Crunchyroll"};
+   
+    // data para One Piece
+   
+    public static String onePieceAnime[] = {"1018 capítulos", "Emisión", "20 de octubre de 1999", "Funanimation, Crunchyroll"};
     public static String onePieceSagas[] = {"Saga del East Blue: 1-61", "Saga de Arabasta: 62-135", "Saga de La Isla del Cielo: 136-206", 
                                "Saga de Water 7: 207-325", "Saga de Thriller Bark: 326-384", "Saga de la Guerra de Marineford: 385-516",
                                "Saga de la Isla Gyojin: 517-574", "Saga de la Alianza Pirata: 575-746", "Saga contra Los Cuatro Emperadores: 747-????"};
@@ -46,4 +49,32 @@ public class DataCatalogo {
                                 "Usopp: Recompensa: 200.000.000", "Sanji: Recompensa: 330.000.000", "Tony Tony Chopper: Recompensa: 100", "Nico Robin: Recompensa: 130.000.000", 
                                 "Franky: Recompensa: 94.000.000", "Brook: Recompensa: 83.000.000", "Jinbe: Recompensa: 438.000.000"};
     public static String onePieceGeneral[] = {"Eiichiro Oda", "Toei Animation", "ワンピース"};
+    
+    // data para SNK
+    
+    public static String snkAnime1Temp[] = {"25 capítulos y 8 OVA", "6 de abril de 2013 hasta 28 de septiembre de 2013", "Terminado", "Funimation", "Wit Studio"};    
+    public static String snkAnime2Temp[] = {"12 capítulos", "1 de abril de 2017 hasta 17 de junio de 2017", "Terminado", "Funimation", "Wit Studio"};
+    public static String snkAnime3Temp[] = {"22 capítulos", "23 de julio de 2018 hasta 30 de junio de 2019", "Terminado", "Funimation", "Wit Studio"};
+    public static String snkAnime4Temp[] = {"28 capítulos", "7 de diciembre de 2020 hasta el momento", "Emisión", "Funimation y Crunchyroll", "MAPPA"};
+    
+    public static String snkManga[] = {"34 volúmenes", "139 capítulos", "desde 2009 al año 2021", "Finalizado"};    
+    public static String snkTomos[] = {"Volumen 1: ¡LA DESESPERADA BATALLA COMIENZA!", "Volumen 2: NACIMIENTO DE UN MONSTRUO", "Volumen 3: TRAIDOR", "Volumen 4: ¡LA HUMANIDAD SE POSPONE!", 
+                                   "Volumen 5: ¿PUEDES IR A CASA OTRA VEZ?", "Volumen 6: TITÁN EN LA CAZA", "Volumen 7: CONVIRTIÉNDOSE POR SU CUENTA", "Volumen 8: SANGRE EN SUS MANOS", 
+                                   "Volumen 9: LA PEOR PESADILLA DE LA HUMANIDAD", "Volumen 10: FORTALEZA DE SANGRE", "Volumen 11: ¿CREES QUE ESTE MUNDO TIENE FUTURO?", "Volumen 12: ¡LA PERSECUCIÓN ESTA EN MARCHA!", 
+                                   "Volumen 13: SIN LUGAR SEGURO PARA REGRESAR", "Volumen 14: LA MAYOR APUESTA DE ERWIN", "Volumen 15: FUGITIVOS Y PRESOS", 
+                                   "Volumen 16: ¿CUÁL FUE EL PECADO DE SU PADRE?", "Volumen 17: ESCAPE DEL REY TITÁN", "Volumen 18: AVE MARÍA", "Volumen 19: ENFRENTAMIENTO DE JAULA", 
+                                   "Volumen 20: ENFRENTANDO LA ANIQUILACIÓN", "Volumen 21: HACIA EL SÓTANO", "Volumen 22: VICTORIA PÍRRICA", "Volumen 23: EL SUEÑO DE LA LIBERTAD HA MUERTO", 
+                                   "Volumen 24: SE ENCUENTRA EN TI MISMO", "Volumen 25: PARTIENDO HACIA LA BATALLA", "Volumen 26: CHOQUE DE ELDIANOS", "Volumen 27: MINUTOS PARA LA MEDIA NOCHE", 
+                                   "Volumen 28: SALVADOR DESPIADADO", "Volumen 29: DENTRO DE LA VACÍA CORONA", "Volumen 30: SOLO HUMANO", "Volumen 31: AVANCE DE LOS TITANES", "Volumen 32: EL AMANECER DEL HOMBRE", 
+                                   "Volumen 33: MARCHANDO HACIA ADELANTE", "Volumen 34: LIBERTAD..." };
+    
+    public static String nueveTitanes[] = {"Titán Fundador (始祖の巨人 Shiso no Kyojin)", "Titán de Ataque (進撃の巨人 Shingeki no Kyojin)", "Titán Colosal (超大型巨人 Chō ōgata Kyojin)", 
+                                   "Titán Acorazado (鎧の巨人 Yoroi no Kyojin)", "Titán Hembra (女型の巨人 Megata no Kyojin)", "Titán Bestia (獣の巨人 Kemono no Kyojin)", "Titán Mandíbula (顎の巨人 Agito no Kyojin)", 
+                                   "Titán Carguero (車力の巨人 Shariki no Kyojin)", "Titán Martillo de Guerra (戦鎚の巨人 Sentsui no Kyojin)"};
+    public static String portadores[] = {"Reiner Braun: Titán Acorazado", "Annie Leonhart: Titán Hembra", "Pieck Finger: Titán Carguero", "Armin Arlert: Titán Colosal", "Falco Grice: Titán Mandíbula", 
+        "Ymir Fritz: Titán Fundador (muerta)", "Karl Fritz: Titán Fundador (muerta)", "Eren Kruger: Titán de Ataque (muerto)", "Tom Xaver: Titán Bestia (Muerto)", "Uri Reiss: Titán Fundador (Muerto)", 
+        "Marcel Galliard: Titán Mandíbula (muerto)", "Frieda Reiss: Titán Fundador (muerta)", "Grisha Jaeger: Titán de Ataque, Titán Fundador (muerto)", "Bertolt HooverL: Titán Colosal (muerto)", 
+        "Ymir: Titán Mandíbula (muerta)", "Lara Tybur: Titán Martillo de Guerra (muerta)", "Porco Galliard: Titán Mandíbula (muerto)", "Zeke Jaeger: Titán Bestia (muerto)", 
+        "Eren Jaeger: Titán de Ataque, Titán Fundador, Titán Martillo de Guerra" };  
+
 }

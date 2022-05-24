@@ -37,9 +37,7 @@ public class WikiAnime {
                 System.out.println("""
                            Por favor seleccione una de las siguientes opciones:
                             1. One Piece. 
-                            2. Shingeki no Kyojin.
-                            3. Jujutsu Kaisen.
-                            4. Naruto.""");
+                            2. Shingeki no Kyojin.""");
         
                 int opcionAnime  = entrada.nextInt();
                 

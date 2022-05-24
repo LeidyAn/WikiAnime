@@ -12,6 +12,8 @@ import java.util.Scanner;
  */
 public class DefinirCatalogo {
     
+    // métodos para información primer ánime 
+    
     public static void animeOnePiece (){
         System.out.println("El ánime en este momento cuenta con " + DataCatalogo.onePieceAnime[0] + ". Se encuentra en " 
                 + DataCatalogo.onePieceAnime[1] + ". \n" + "La primera emisión de One Piece fue el " + DataCatalogo.onePieceAnime[2] 
@@ -43,6 +45,67 @@ public class DefinirCatalogo {
         for( int i=0; i < DataCatalogo.onePieceTripulacion.length ; i++)
         {
             System.out.println(i+1 + ". " + DataCatalogo.onePieceTripulacion[i]);
+        }
+    }
+    
+    // métodos para segundo ánime 
+    
+    public static void animeSnk () {
+        
+        System.out.println("El anime se divide en 4 temporadas: ");        
+        System.out.println("Primera temporada: ");
+        System.out.println("La primera temporada consta de " + DataCatalogo.snkAnime1Temp[0] + " .\n" + 
+                "estuvo en emisión desde el " + DataCatalogo.snkAnime1Temp[1] + ". \n" +
+                "En este momento esta temporada se encuentra " + DataCatalogo.snkAnime1Temp[2] + ". Fue animada por " +
+                DataCatalogo.snkAnime1Temp[4] + " y lo puedes encontrar en " + DataCatalogo.snkAnime1Temp[3] );
+        System.out.println("--------------------------------------------------------------------------------------------");
+        System.out.println("Segunda temporada: ");
+        System.out.println("La segunda temporada consta de " + DataCatalogo.snkAnime2Temp[0] + " .\n" + 
+                "estuvo en emisión desde el " + DataCatalogo.snkAnime2Temp[1] + ". \n" +
+                "En este momento esta temporada se encuentra " + DataCatalogo.snkAnime2Temp[2] + ". Fue animada por " +
+                DataCatalogo.snkAnime2Temp[4] + " y lo puedes encontrar en " + DataCatalogo.snkAnime2Temp[3] );
+        System.out.println("--------------------------------------------------------------------------------------------");
+        System.out.println("Tercera temporada: ");
+        System.out.println("La tercera temporada consta de " + DataCatalogo.snkAnime3Temp[0] + " .\n" + 
+                "estuvo en emisión desde el " + DataCatalogo.snkAnime3Temp[1] + ". \n" +
+                "En este momento esta temporada se encuentra " + DataCatalogo.snkAnime3Temp[2] + ". Fue animada por " +
+                DataCatalogo.snkAnime3Temp[4] + " y lo puedes encontrar en " + DataCatalogo.snkAnime3Temp[3] );
+        System.out.println("--------------------------------------------------------------------------------------------");
+        System.out.println("Cuarta temporada: ");
+        System.out.println("La cuarta temporada consta de " + DataCatalogo.snkAnime4Temp[0] + " .\n" + 
+                "estuvo en emisión desde el " + DataCatalogo.snkAnime4Temp[1] + ". \n" +
+                "En este momento esta temporada se encuentra " + DataCatalogo.snkAnime4Temp[2] + ". Fue animada por " +
+                DataCatalogo.snkAnime4Temp[4] + " y lo puedes encontrar en " + DataCatalogo.snkAnime4Temp[3] );
+        System.out.println("--------------------------------------------------------------------------------------------");
+        
+    }
+    
+    public static void mangaSnk () {
+        System.out.println("El manga de SNK se encuentra " + DataCatalogo.snkManga[3] + ". \n" +
+                "Cuenta con un total de " + DataCatalogo.snkManga[0] + " y " + DataCatalogo.snkManga[1] + ". \n" +
+                "Fue publicado " + DataCatalogo.snkManga[2] + ".");
+        System.out.println("Cuenta con los siguientes tomos: ");
+        
+        for( int i=0; i < DataCatalogo.snkTomos.length ; i++)
+        {
+            System.out.println(i+1 + ". " + DataCatalogo.snkTomos[i]);
+        }
+    }
+    
+    public static void generalSnk (){
+        System.out.println("Dentro los elementos proncipales de la obra encontramos los 9 titanes cambiantes, que son: ");
+        
+        for( int i=0; i < DataCatalogo.nueveTitanes.length ; i++)
+        {
+            System.out.println(i+1 + ". " + DataCatalogo.nueveTitanes[i]);
+        }
+        
+        System.out.println("-----------------------------------------------------------------------------------------------");
+        
+        System.out.println("Adicionalmente, puedes encontrar los portadores de dichos titanes durante la historia: ");
+        for( int i=0; i < DataCatalogo.portadores.length ; i++)
+        {
+            System.out.println(i+1 + ". " + DataCatalogo.portadores[i]);
         }
     }
 
@@ -86,30 +149,27 @@ public class DefinirCatalogo {
                             1. Anime. 
                             2. Manga.
                             3. Información general.""");
+                int categoria = entrada.nextInt();
+                
+                switch (categoria) {
+                    case 1 -> {
+                        animeSnk();
+                    }
+                    case 2 -> {
+                        mangaSnk();
+                    }
+                    case 3 -> {
+                        generalSnk();
+                    }
+                    default -> {
 
+                        System.out.println("Opcion incorrecta");
 
-            }
-            case 3 -> {
-
-                System.out.println("""
-                           De qué categoría quieres ampliar la información de Jujutsu Kaisen:
-                            1. Anime. 
-                            2. Manga.
-                            3. Información general.""");
-
-
-            }
-            case 4 -> {
-
-                System.out.println("""
-                           De qué categoría quieres ampliar la información de Naruto:
-                            1. Anime. 
-                            2. Manga.
-                            3. Información general.""");
-
+                     }
+                }
 
             }
-
+           
             default -> {
 
                 System.out.println("Opcion incorrecta");
