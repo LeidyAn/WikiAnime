@@ -19,26 +19,15 @@ import java.util.logging.Logger;
  */
 public class WikiAnime {
     
-    public static bienvenida welcome = new bienvenida();    
-    public static CrearListas create = new CrearListas();    
-    public static DefinirCatalogo reviewCatalog = new DefinirCatalogo();
-
-
-    
     public class globalVars {
         public static int continuar = 1;
-        public static int counter = 0; 
         public static List<AnimeDeseado> animeDeseado = new ArrayList<>();
         public static List<AnimeIniciado> animeIniciado = new ArrayList<>();        
         public static List<AnimeFinalizado> animeFinalizado = new ArrayList<>();
         public static List<AnimeListaNegra> ListaNegra = new ArrayList<>();
 
     }
-    //Método para dar la bienvenida y definición del proyecto
-    
    
-    
-    //Método para menú secundario 
     
     public static void catalogo_lista (int opcionInicial) {
         Scanner entrada = new Scanner(System.in);
@@ -54,7 +43,7 @@ public class WikiAnime {
         
                 int opcionAnime  = entrada.nextInt();
                 
-                reviewCatalog.opcion_catalogo(opcionAnime);
+                DefinirCatalogo.opcion_catalogo(opcionAnime);
 
             }
 
@@ -71,8 +60,7 @@ public class WikiAnime {
         
                 int opcionLista  = entrada.nextInt();
                 // llamado del método para crear listas 
-                create.crear_lista(opcionLista);
-                globalVars.counter = globalVars.counter + 1;
+                CrearListas.crear_lista(opcionLista);
                 System.out.println("""
                            Desea agregar otro anime:
                             1. Sí. 
@@ -83,7 +71,7 @@ public class WikiAnime {
                 
                 // Mostrar resultado al terminar 
                 
-                EscribirAnime();
+                TotalListas.EscribirAnime();
             }
 
             default -> {
@@ -127,54 +115,7 @@ public class WikiAnime {
         public String estado;
         public int calificacion; 
     }
-    
-    public static void EscribirAnime (){
-        if(globalVars.animeDeseado.size() >= 1 ){
-            System.out.println("Los ánimes que deseas ver son: ");
-        globalVars.animeDeseado.stream().forEach(anime -> System.out.println("Nombre del anime: " + anime.nombre + "\n" + 
-                                                                             "Total de capítulos: " + anime.total + "\n" + 
-                                                                             "Estado del ánime: " + anime.estado ));
-            System.out.println( "-------------------------------------------------------------");
-        }
-        
-        if(globalVars.animeIniciado.size() >= 1 ){
-            System.out.println("Los ánimes que has iniciado a ver son: ");
-        globalVars.animeIniciado.stream().forEach(anime -> System.out.println("Nombre del anime: " + anime.nombre + "\n" + 
-                                                                             "Total de capítulos: " + anime.total + "\n" + 
-                                                                             "Te encuentras en el capítulo número: " + anime.capitulo + "\n" +  
-                                                                             "Estado del ánime: " + anime.estado));
-            System.out.println( "-------------------------------------------------------------");
-
-        }
-        
-        if(globalVars.animeFinalizado.size() >= 1 ){
-            System.out.println("Los ánimes que has finalizado son: ");
-        globalVars.animeFinalizado.stream().forEach(anime -> System.out.println("Nombre del anime: " + anime.nombre + "\n" + 
-                                                                             "Total de capítulos: " + anime.total + "\n" + 
-                                                                             "Estado del ánime: " + anime.estado + "\n" +  
-                                                                             "Calificación que merece: " + anime.calificacion ));
-            System.out.println( "-------------------------------------------------------------");
-        }
-        
-        if(globalVars.ListaNegra.size() >= 1 ){
-            System.out.println("Los ánimes que no recomendarías ni a tu peor enemigo son: ");
-        globalVars.ListaNegra.stream().forEach(anime -> System.out.println("Nombre del anime: " + anime.nombre + "\n" + 
-                                                                             "Total de capítulos: " + anime.total + "\n" + 
-                                                                             "Estado del ánime: " + anime.estado + "\n" +  
-                                                                             "Calificación que merece: " + anime.calificacion ));
-        System.out.println( "-------------------------------------------------------------");
-        }
-        
-    }
-
-    
-    
-    //Método para opción crear lista 
-    
-    
-    
-    
-
+   
     public static void main(String[] args) {
         try {
             System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out), true, "UTF-8"));
@@ -184,7 +125,7 @@ public class WikiAnime {
         
          Scanner entrada = new Scanner(System.in);
         //Dar bienvenida
-        welcome.Bienvenida();
+        bienvenida.Bienvenida();
         // Solicitar opción inicial 
         System.out.println("""
                            Por favor seleccione una de las siguientes opciones:

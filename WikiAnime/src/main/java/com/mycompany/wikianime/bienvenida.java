@@ -13,12 +13,12 @@ public class bienvenida {
      public static void Bienvenida(){
         System.out.println("""
                            Estimado humano, bienvenido.
-                           Este programa está diseñado para que pueda consultar 
+                           Este programa está diseñado para que puedas consultar 
                            un ánime de nuestro catálogo para ampliar la información 
                            y pueda decidir si verlo o no. 
-                           Además puede crear y descargar una lista de animes que quiera ver, 
-                           está viendo o terminó de ver, de esta forma va a estar siempre pendiente 
-                           de los ánimes que ha visto o desea ver. """);
+                           Además puedes crear tu propia lista de animes que quieras ver, 
+                           estás viendo o terminaste de ver, de esta forma vas a estar siempre pendiente 
+                           de los ánimes que has visto o deseas ver. """);
     }
     
     
