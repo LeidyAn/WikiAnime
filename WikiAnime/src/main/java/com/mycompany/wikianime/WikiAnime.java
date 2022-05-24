@@ -21,6 +21,8 @@ public class WikiAnime {
     
     public class globalVars {
         public static int continuar = 1;
+        public static int menuPrincipal = 1;
+        public static int verOtro = 1;
         public static List<AnimeDeseado> animeDeseado = new ArrayList<>();
         public static List<AnimeIniciado> animeIniciado = new ArrayList<>();        
         public static List<AnimeFinalizado> animeFinalizado = new ArrayList<>();
@@ -34,6 +36,8 @@ public class WikiAnime {
         switch (opcionInicial){
 
             case 1 -> {
+                while(globalVars.verOtro == 1)
+                {
                 System.out.println("""
                            Por favor seleccione una de las siguientes opciones:
                             1. One Piece. 
@@ -42,7 +46,13 @@ public class WikiAnime {
                 int opcionAnime  = entrada.nextInt();
                 
                 DefinirCatalogo.opcion_catalogo(opcionAnime);
-
+                System.out.println("""
+                           Desea visitar otro anime:
+                            1. Sí. 
+                            2. No.""");
+                    
+                    globalVars.verOtro = entrada.nextInt();
+                }
             }
 
             case 2 -> {
@@ -124,16 +134,30 @@ public class WikiAnime {
          Scanner entrada = new Scanner(System.in);
         //Dar bienvenida
         bienvenida.Bienvenida();
-        // Solicitar opción inicial 
-        System.out.println("""
+        // Solicitar opción inicial mediante while para que pueda regresar al menú principal
+        
+         while(globalVars.menuPrincipal == 1)
+          { 
+                System.out.println("""
                            Por favor seleccione una de las siguientes opciones:
                             1. Ver catálogo de ánimes. 
                             2. Crear lista de ánimes""");
         
-        int opcionInicial  = entrada.nextInt();
-        // Llamado a segundo menu 
-        catalogo_lista(opcionInicial);
+                int opcionInicial  = entrada.nextInt();
+                // Llamado a segundo menu 
+                catalogo_lista(opcionInicial);
+
+                System.out.println("""
+                                   ¿Desea ir al menú principal?:
+                                    1. Sí. 
+                                    2. No.""");
+                    
+                    globalVars.menuPrincipal = entrada.nextInt();
+         }
+        
+        
         
     }
+    
        
 }
